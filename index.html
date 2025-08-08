@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeaseNest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="LeaseNest Logo" class="logo">
+        <h1>Find Your Dream Home with LeaseNest!</h1>
+    </header>
+
+    <section id="search">
+        <input type="text" id="searchBox" placeholder="Search properties...">
+        <select id="filterLocation">
+            <option value="">All Locations</option>
+            <option value="Noida">Noida</option>
+            <option value="Delhi">Delhi</option>
+        </select>
+        <select id="filterPrice">
+            <option value="">All Prices</option>
+            <option value="low">Below ₹50L</option>
+            <option value="mid">₹50L - ₹1Cr</option>
+            <option value="high">Above ₹1Cr</option>
+        </select>
+    </section>
+
+    <section id="properties">
+        <div class="property" data-location="Noida" data-price="mid">
+            <h3>2BHK in Noida</h3>
+            <p>₹75 Lakhs</p>
+        </div>
+        <div class="property" data-location="Delhi" data-price="high">
+            <h3>Luxury Apartment in Delhi</h3>
+            <p>₹1.5 Cr</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
