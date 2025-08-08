@@ -1,43 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeaseNest</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeaseNest - Find Your Dream Home</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header,
+    footer {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    nav {
+      background-color: #3b82f6;
+      padding: 1em;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      margin: 0.5em;
+      color: white;
+      text-decoration: none;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    .search-box input {
+      padding: 0.5em;
+      border-radius: 5px;
+      border: none;
+    }
+    section {
+      padding: 2em;
+    }
+    .hero {
+      background-color: #e0f2fe;
+      text-align: center;
+      padding: 4em 2em;
+      animation: fadeIn 2s ease-in;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .cta-button {
+      background-color: #2563eb;
+      color: white;
+      padding: 1em 2em;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .grid {
+      display: flex;
+      gap: 1em;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .card {
+      background: #f8fafc;
+      border: 1px solid #ccc;
+      padding: 1em;
+      width: 300px;
+      border-radius: 5px;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        text-align: center;
+      }
+      .grid {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="LeaseNest Logo" class="logo">
-        <h1>Find Your Dream Home with LeaseNest!</h1>
-    </header>
+  <header>
+    <h1>LeaseNest</h1>
+    <p>Your Trusted Property Leasing Partner</p>
+  </header>
 
-    <section id="search">
-        <input type="text" id="searchBox" placeholder="Search properties...">
-        <select id="filterLocation">
-            <option value="">All Locations</option>
-            <option value="Noida">Noida</option>
-            <option value="Delhi">Delhi</option>
-        </select>
-        <select id="filterPrice">
-            <option value="">All Prices</option>
-            <option value="low">Below ₹50L</option>
-            <option value="mid">₹50L - ₹1Cr</option>
-            <option value="high">Above ₹1Cr</option>
-        </select>
-    </section>
+  <nav>
+    <div class="logo">
+      <img src="https://via.placeholder.com/40" alt="LeaseNest Logo" />
+      <span style="color: white; font-weight: bold;">LeaseNest</span>
+    </div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#properties">Properties</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact Us</a>
+      <a href="#blog">Blog</a>
+    </div>
+    <div class="search-box">
+      <input type="text" id="propertySearch" placeholder="Search properties..." onkeyup="filterProperties()" />
+    </div>
+  </nav>
 
-    <section id="properties">
-        <div class="property" data-location="Noida" data-price="mid">
-            <h3>2BHK in Noida</h3>
-            <p>₹75 Lakhs</p>
-        </div>
-        <div class="property" data-location="Delhi" data-price="high">
-            <h3>Luxury Apartment in Delhi</h3>
-            <p>₹1.5 Cr</p>
-        </div>
-    </section>
+  <section class="hero" id="home">
+    <h2>Find Your Dream Home with LeaseNest!</h2>
+    <p>Browse through our verified listings and move in with ease.</p>
+    <a href="#contact" class="cta-button">Contact Us Today!</a>
+  </section>
 
-    <script src="script.js"></script>
+  <section class="properties" id="properties">
+    <h2>Featured Properties</h2>
+    <div class="grid" id="propertyList">
+      <div class="card" data-title="2 BHK in Noida">
+        <h3>2 BHK in Noida</h3>
+        <p>Spacious, well-lit, near metro.</p>
+      </div>
+      <div class="card" data-title="Villa in Ghaziabad">
+        <h3>Villa in Ghaziabad</h3>
+        <p>Luxury villa with garden space.</p>
+      </div>
+      <div class="card" data-title="Studio in Delhi">
+        <h3>Studio in Delhi</h3>
+        <p>Affordable and central location.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="grid">
+      <div class="card">“LeaseNest helped me find the perfect flat within days!”</div>
+      <div class="card">“Great experience for property owners. Smooth leasing process.”</div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>About Us</h2>
+    <p>LeaseNest is committed to bridging the gap between property owners and tenants through professional leasing and management services.</p>
+    <div class="grid">
+      <div class="card">Rahul - Leasing Head</div>
+      <div class="card">Neha - Tenant Relations</div>
+    </div>
+    <div>
+      <h3>Our Core Values</h3>
+      <ul>
+        <li>Transparency</li>
+        <li>Trust</li>
+        <li>Efficiency</li>
+        <li>Customer-first Approach</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Property Leasing</h3>
+        <p>Helping owners lease their property with ease and assurance.</p>
+      </div>
+      <div class="card">
+        <h3>Property Management</h3>
+        <p>Complete rental and maintenance solutions for owners.</p>
+      </div>
+      <div class="card">
+        <h3>Tenant Services</h3>
+        <p>Support and assistance for tenants throughout their stay.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>Phone: 9927952535</p>
+    <p>Email: support@leasenest.com</p>
+    <p>Office: LeaseNest, Sector 62, Noida, India</p>
+    <form>
+      <label>Name:<br /><input type="text" name="name" /></label><br /><br />
+      <label>Email:<br /><input type="email" name="email" /></label><br /><br />
+      <label>Message:<br /><textarea name="message"></textarea></label><br /><br />
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <section class="blog" id="blog">
+    <h2>Blog & Insights</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Tips for First Time Tenants</h3>
+        <p>Understand your rights and responsibilities before you rent.</p>
+      </div>
+      <div class="card">
+        <h3>Why LeaseNest?</h3>
+        <p>Discover what makes LeaseNest the preferred choice for leasing.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 LeaseNest. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function filterProperties() {
+      const input = document.getElementById("propertySearch").value.toLowerCase();
+      const cards = document.querySelectorAll("#propertyList .card");
+      cards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        card.style.display = title.includes(input) ? "block" : "none";
+      });
+    }
+  </script>
 </body>
 </html>
