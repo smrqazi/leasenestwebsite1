@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background: #1e90ff;
+    color: white;
+}
+
+.logo {
+    height: 60px;
+}
+
+#search {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    background: white;
+}
+
+#search input, #search select {
+    padding: 8px;
+    font-size: 14px;
+}
+
+#properties {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.property {
+    background: white;
+    padding: 15px;
+    width: 250px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.property:hover {
+    transform: scale(1.05);
+}
